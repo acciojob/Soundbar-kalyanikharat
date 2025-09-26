@@ -1,1 +1,22 @@
 /*  your css code here. If applicable */
+#buttons {
+  
+  background-color: purple;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+.btn {
+  background-color: darkviolet;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.btn:hover {
+  transform: scale(1.1);
+}
