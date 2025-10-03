@@ -1,6 +1,4 @@
-/*  your css code here. If applicable */
 #buttons {
-  
   background-color: purple;
   padding: 20px;
   display: flex;
@@ -8,6 +6,7 @@
   gap: 10px;
   justify-content: center;
 }
+
 .btn {
   background-color: darkviolet;
   color: white;
@@ -17,6 +16,7 @@
   cursor: pointer;
   transition: transform 0.2s ease;
 }
+
 .btn:hover {
   transform: scale(1.1);
 }

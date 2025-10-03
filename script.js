@@ -1,4 +1,3 @@
-//your JS code here. If required.
 const sounds = [
   "applause.mp3",
   "boo.mp3",
@@ -6,14 +5,21 @@ const sounds = [
   "tada.mp3",
   "victory.mp3",
   "wrong.mp3",
-  "stop.mp3",
-  
+  "stop.mp3"
 ];
 
-for (let i = 1; i <= 9; i++) {
+let currentAudio = null;
+
+for (let i = 1; i <= sounds.length; i++) {
   const btn = document.getElementById(`btn${i}`);
-  btn.addEventListener("click", () => {
-    const audio = new Audio(`sounds/${sounds[i - 1]}`);
-    audio.play();
-  });
+  if (btn) {
+    btn.addEventListener("click", () => {
+      if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+      }
+      currentAudio = new Audio(`sounds/${sounds[i - 1]}`);
+      currentAudio.play();
+    });
+  }
 }
