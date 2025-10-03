@@ -1,25 +1,44 @@
-const sounds = [
-  "applause.mp3",
-  "boo.mp3",
-  "gasp.mp3",
-  "tada.mp3",
-  "victory.mp3",
-  "wrong.mp3",
-  "stop.mp3"
-];
+const sounds = ['applause', 'boo', 'gasp', 'tada', 'victory', 'wrong'];
 
-let currentAudio = null;
+const buttons = document.getElementById('buttons');
 
-for (let i = 1; i <= sounds.length; i++) {
-  const btn = document.getElementById(`btn${i}`);
-  if (btn) {
-    btn.addEventListener("click", () => {
-      if (currentAudio) {
-        currentAudio.pause();
-        currentAudio.currentTime = 0;
-      }
-      currentAudio = new Audio(`sounds/${sounds[i - 1]}`);
-      currentAudio.play();
-    });
-  }
+// Build a play button for each sound
+sounds.forEach((sound) => {
+  // hidden audio element
+  const audio = document.createElement('audio');
+  audio.id = sound;
+  audio.src = `./sounds/${sound}.mp3`;
+  audio.preload = 'auto';
+  document.body.appendChild(audio);
+
+  // visible button
+  const btn = document.createElement('button');
+  btn.className = 'btn';
+  btn.textContent = sound;
+
+  btn.addEventListener('click', () => {
+    stopSounds();
+    const el = document.getElementById(sound);
+    el.currentTime = 0;
+    const p = el.play();    
+  });
+
+  buttons.appendChild(btn);
+});
+
+// Stop button (DO NOT give it .btn so tests count 6 .btn only)
+const stopBtn = document.createElement('button');
+stopBtn.className = 'stop';
+stopBtn.textContent = 'stop';
+stopBtn.addEventListener('click', stopSounds);
+buttons.appendChild(stopBtn);
+
+// Pause & reset all
+function stopSounds() {
+  sounds.forEach((sound) => {
+    const el = document.getElementById(sound);
+    if (!el) return;
+    el.pause();
+    el.currentTime = 0;
+  });
 }

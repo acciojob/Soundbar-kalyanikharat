@@ -1,22 +1,38 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: #111;
+  color: #fff;
+  padding: 40px;
+}
+
 #buttons {
-  background-color: purple;
-  padding: 20px;
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
   justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 30px;
 }
 
 .btn {
-  background-color: darkviolet;
+  background: #007bff;
   color: white;
   border: none;
-  padding: 10px 20px;
-  font-size: 10px;
+  padding: 15px 25px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  font-size: 16px;
+  transition: background 0.3s;
 }
 
 .btn:hover {
-  transform: scale(1.1);
+  background: #0056b3;
+}
+
+.stop {
+  background: crimson;
+}
+
+.stop:hover {
+  background: darkred;
 }
